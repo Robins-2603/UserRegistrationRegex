@@ -20,4 +20,19 @@ public class Operations {
             System.out.println("You've Entered invalid first name");
         }
     }
+
+    public static void validLastName() {
+        Scanner sc = new Scanner(System.in);
+        String name = sc.next();
+        String regex = "^[A-Z]{1}[a-z]{2,}$";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(name);
+        boolean b = m.matches();
+        if(b) {
+            System.out.println("You've Entered valid Last name");
+        }
+        else {
+            System.out.println("You've Entered invalid Last name");
+        }
+    }
 }
