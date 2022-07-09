@@ -63,6 +63,18 @@ public class Operations {
             System.out.println("Your Email Address is invalid");
         return result;
     }
-
-
+    public static void validMobile(){
+        Scanner scan=new Scanner(System.in);
+        System.out.print("Enter your mobile number: ");
+        String number=scan.nextLine();
+        String regex="^[0-9]{2}\\s{0,1}[0-9]{10}$";
+        Pattern p=Pattern.compile(regex);
+        Matcher m=p.matcher(number);
+        boolean result=m.matches();
+        if(result){
+            System.out.println("Mobile number is valid");
+        }else{
+            System.out.println("Mobile number is invalid");
+        }
+    }
 }
