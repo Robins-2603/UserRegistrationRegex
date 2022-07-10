@@ -27,6 +27,9 @@ public class UserRegistrationMain {
             case 5:
                 Operations.password();
                 break;
+            default:
+                System.out.println("Invalid input!");
+                break;
         }
     }
 }
