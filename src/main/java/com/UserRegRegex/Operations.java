@@ -81,7 +81,7 @@ public class Operations {
         Scanner scan =new Scanner(System.in);
         System.out.print("Enter your password: ");
         String password= scan.nextLine();
-        String regex="^[A-Za-z0-9.@#$%^&*-_+.!]{8,}$";
+        String regex="^[A-Z]{1,}[A-Za-z0-9.@#$%^&*-_+.!]{7,}$";
         Pattern p=Pattern.compile(regex);
         Matcher m=p.matcher(password);
         boolean result=m.matches();
