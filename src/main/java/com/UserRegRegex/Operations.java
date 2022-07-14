@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class Operations {
     static Scanner sc = new Scanner(System.in);
 
-    public static boolean validFirstName(String name) {
+    public static boolean validFirstName(String name) throws InvalidFirstNameException{
 
         //String name = sc.next();
         /* regex method for rules:- - First name starts with Cap and has
@@ -17,16 +17,14 @@ public class Operations {
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(name);
         boolean b = m.matches();
-        if(b) {
-            System.out.println("You've Entered valid first name");
+        if(!b) {
+            throw new InvalidFirstNameException("first Name should start with a Cap and should have minimum 3 chars");
         }
-        else {
-            System.out.println("You've Entered invalid first name");
-        }
-        return b;
+        else
+        return true;
     }
 
-    public static boolean validLastName(String lastName) {
+    public static boolean validLastName(String lastName) throws InvalidLastNameException {
       //  Scanner sc = new Scanner(System.in);
        // String name = sc.next();
 
@@ -37,19 +35,16 @@ public class Operations {
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(lastName);
         boolean b = m.matches();
-        if(b) {
-            System.out.println("You've Entered valid Last name");
-        }
-        else {
-            System.out.println("You've Entered invalid Last name");
-        }
-        return b;
+        if(!b) {
+            throw new InvalidLastNameException("Last Name should start with a Cap and should have minimum 3 chars");
+        }else
+            return true;
     }
 
     // method for email id
     // Method to check email.
-    public static boolean validEmailAddress(String emailId){
-        System.out.print("Enter the Email Address:  ");
+    public static boolean validEmailAddress(String emailId) throws InvalidEmailIdException{
+       // System.out.print("Enter the Email Address:  ");
        // String emailId = sc.next();
         /*
         Should clear all email samples
@@ -60,41 +55,36 @@ public class Operations {
         Matcher m = p.matcher(emailId);
         boolean result = m.matches();
         // if condition is to check the email address is valid or not
-        if (result)
-            System.out.println("Your Email Address is valid");
-        else
-            System.out.println("Your Email Address is invalid");
-        return result;
+        if(!result){
+            throw new InvalidEmailIdException("enter a valid email address. ");
+        }else
+            return true;
     }
-    public static boolean validMobile(String number){
+    public static boolean validMobile(String number) throws InvalidMobileNumberException {
        // Scanner scan=new Scanner(System.in);
-        System.out.print("Enter your mobile number: ");
+        //System.out.print("Enter your mobile number: ");
       //  String number=scan.nextLine();
         String regex="^[0-9]{2}\\s{0,1}[0-9]{10}$";
         Pattern p=Pattern.compile(regex);
         Matcher m=p.matcher(number);
         boolean result=m.matches();
-        if(result){
-            System.out.println("Mobile number is valid");
-        }else{
-            System.out.println("Mobile number is invalid");
-        }
-        return result;
+        if(!result){
+            throw new InvalidMobileNumberException("Enter the Valid Mobile number with county code eg:- 91 8764314432");
+        }else
+            return true;
     }
-    public static boolean password(String password){
+    public static boolean password(String password) throws InvalidPasswordException {
        // Scanner scan =new Scanner(System.in);
-        System.out.print("Enter your password: ");
+       // System.out.print("Enter your password: ");
         //String password= scan.nextLine();
         String regex="^[A-Z]{1,}[.@#$%^&*_+!-]{1}[0-9]{1,}[A-Za-z0-9]{5,}$";
         Pattern p=Pattern.compile(regex);
         Matcher m=p.matcher(password);
         boolean result=m.matches();
-        if(result){
-            System.out.println("Password is valid");
-        }else{
-            System.out.println("Password is invalid");
-        }
+        if(!result){
+            throw new InvalidPasswordException("Password should Contain min 8 chars with at least: 1 capital letter, 1 numeric and 1 special character ");
+        }else
+            return true;
 
-        return result;
     }
 }
