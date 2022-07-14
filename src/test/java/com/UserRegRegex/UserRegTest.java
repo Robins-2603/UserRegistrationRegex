@@ -10,7 +10,7 @@ public class UserRegTest {
         Operations user=new Operations();
         boolean result= false;
         try {
-            result = user.validFirstName("Robin");
+            result = user.fNameValidate.validateFirstName("Robin");
         } catch (InvalidFirstNameException e) {
             throw new RuntimeException(e);
         }
@@ -21,7 +21,7 @@ public class UserRegTest {
         Operations user=new Operations();
         boolean result = false;
         try {
-            result = user.validFirstName("robin");
+            result = user.fNameValidate.validateFirstName("robin");
         } catch (InvalidFirstNameException e) {
             throw new RuntimeException(e);
         }
@@ -32,7 +32,7 @@ public class UserRegTest {
         Operations user=new Operations();
         boolean result= false;
         try {
-            result = user.validLastName("Chandna");
+            result = user.lNameValidate.validateLastName("Chandna");
         } catch (InvalidLastNameException e) {
             throw new RuntimeException(e);
         }
@@ -44,7 +44,7 @@ public class UserRegTest {
         Operations user=new Operations();
         boolean result= false;
         try {
-            result = user.validLastName("chandna");
+            result = user.lNameValidate.validateLastName("chandna");
         } catch (InvalidLastNameException e) {
             throw new RuntimeException(e);
         }
@@ -55,7 +55,7 @@ public class UserRegTest {
         Operations user=new Operations();
         boolean result= false;
         try {
-            result = user.validEmailAddress("abc@yahoo.com");
+            result = user.emailIDValidate.validateEmailID("abc@yahoo.com");
         } catch (InvalidEmailIdException e) {
             throw new RuntimeException(e);
         }
@@ -66,7 +66,7 @@ public class UserRegTest {
         Operations user=new Operations();
         boolean result= false;
         try {
-            result = user.validEmailAddress("1@yahoo.com");
+            result = user.emailIDValidate.validateEmailID("1@yahoo.com");
         } catch (InvalidEmailIdException e) {
             throw new RuntimeException(e);
         }
@@ -77,7 +77,7 @@ public class UserRegTest {
         Operations user=new Operations();
         boolean result= false;
         try {
-            result = user.validMobile("91 9871622190");
+            result = user.mobNumberValidate.validateMobNumber("91 9871622190");
         } catch (InvalidMobileNumberException e) {
             throw new RuntimeException(e);
         }
@@ -88,7 +88,7 @@ public class UserRegTest {
         Operations user=new Operations();
         boolean result= false;
         try {
-            result = user.validMobile("91  5677885");
+            result = user.mobNumberValidate.validateMobNumber("91  5677885");
         } catch (InvalidMobileNumberException e) {
             throw new RuntimeException(e);
         }
@@ -99,7 +99,7 @@ public class UserRegTest {
         Operations user=new Operations();
         boolean result= false;
         try {
-            result = user.password("R@9obins");
+            result = user.passwordValidate.validatePassword("R@9obins");
         } catch (InvalidPasswordException e) {
             throw new RuntimeException(e);
         }
@@ -110,7 +110,7 @@ public class UserRegTest {
         Operations user=new Operations();
         boolean result= false;
         try {
-            result = user.password("robin34");
+            result = user.passwordValidate.validatePassword("robin34");
         } catch (InvalidPasswordException e) {
             throw new RuntimeException(e);
         }
